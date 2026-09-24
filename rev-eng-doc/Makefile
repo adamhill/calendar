@@ -4,7 +4,7 @@
 #2345678901234567890123456789012345678901234567890123456789012345678901234567890
 #----;-----------------------------------------------;------------------;------;
 
-# EXTERNAL DEPENDENCIES: php8.5(1) a.k.a. php85(1) , gron(1)
+# EXTERNAL DEPENDENCIES: gron(1)
 
 #  2026-09-23-cal-index.html
 all:\
@@ -28,7 +28,6 @@ data-col-info.gron: \
 	;
 	# END bash recipe
 
-# EXTERNAL DEPENDENCIES: php8.5(1) a.k.a. php85(1)
 data-col-info.json: \
   brute-force-col-names-json.lisp \
   ../tests/Fixture/CategoriesEventsFixture.php \

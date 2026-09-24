@@ -6,10 +6,6 @@
 ;2345678901234567890123456789012345678901234567890123456789012345678901234567890
 ;----;-----------------------------------------------;------------------;------;
 
-; EXTERNAL DEPENDENCIES: php8.5(1) a.k.a. php85(1)
-
-      (require :uiop)
-
       (defparameter
           files
    '(#p"../tests/Fixture/CategoriesEventsFixture.php"
@@ -27,6 +23,20 @@
      #p"../tests/Fixture/RoomsFixture.php"
      #p"../tests/Fixture/ToolsFixture.php"
      #p"../tests/Fixture/W9sFixture.php"))
+
+"https://www.quicklisp.org/beta"
+; The following lines added by ql:add-to-init-file:
+      #-quicklisp
+      (let
+          ((quicklisp-init
+             (merge-pathnames
+               "quicklisp/setup.lisp"
+               (user-homedir-pathname))))
+        (when (probe-file quicklisp-init)
+         (load quicklisp-init)))
+
+;     (ql:quickload '(yason)
+      (require :yason)
 
       (defun
           list-of-lines-from-file!
@@ -83,33 +93,43 @@
                 list-of-strings))
 
       (defun
-          json-from-php-arr-lines!
-          (pn list-of-arr-lines)
-"See [U001] in source file."
+          brute-force-string-replace
+          (concat-strings)
+""
           (declare
             (optimize (speed 0) (safety 3)
                       (debug 3)))
           'end-of-doc-string-and-declarations
-        (uiop:run-program
-          `("php8.5"
-            "-r"
-            ,(sconc `("$fields=["
-                      ,(let (*print-readably*)
-                         (format
-                           nil
-                           "~S => ["
-                           (uiop:native-namestring
-                             pn)))
-                      ,@(rest
-                          (butlast
-                            list-of-arr-lines))
-                      "]];"
-                      "print json_encode($fields, "
-                        "JSON_unescaped_slashes);"))
-            "--")
-          :output '(:string :stripped t)
-          :error-output '(:lines)))
+        (with-output-to-string (out)
+          (declare
+            (optimize (speed 0) (safety 3)
+                      (debug 3)))
+          (with-input-from-string (in concat-strings)
+            (declare
+              (optimize (speed 0) (safety 3)
+                        (debug 3)))
+            (prog ((c #\Nul))
+              (declare
+                (optimize (speed 0) (safety 3)
+                          (debug 3)))
+ nxtc
+              (setf c (read-char in nil #\Nul))
+              (case c
+                (#\Nul (return))
+                (#\[ (write-char #\( out))
+                (#\] (write-char #\) out))
+                (#\' (write-char #\" out))
+                ((#\, #\= #\>) #|skip|#)
+                (otherwise (write-char c out)))
+              (go nxtc)))))
 
+      (defmethod
+          yason:encode
+          ((object pathname)
+           &optional stream)
+        (yason:encode
+          (uiop:native-namestring object)
+          stream))
 
       (defun
           main
@@ -119,18 +139,43 @@
             (optimize (speed 0) (safety 3)
                       (debug 3)))
           'end-of-doc-string-and-declarations
+        #+()
         (format
           *standard-output*
-          "{\"fixtures\": [~{~A~^,  ~}]}"
+;         "{\"fixtures\": [~{~A~^,  ~}]}"
+          "~W~%"
           (mapcar
 ; Returns an alist.
             (lambda (pn)
-              (json-from-php-arr-lines!
-                pn
-                (list-of-col-php-arr-lines
-                  (list-of-lines-from-file!
-                    pn))))
-            files)))
+              `(,pn
+                ,@(read-from-string
+                    (brute-force-string-replace
+                      (sconc
+                        `("["
+                          ,@(rest
+                              (list-of-col-php-arr-lines
+                                (list-of-lines-from-file!
+                                  pn)))))))))
+            files))
+        (let ((yason:*symbol-encoder*
+                #'yason:encode-symbol-as-lowercase))
+          (yason:encode
+            (mapcar
+              ; Returns an alist.
+              (lambda (pn)
+                `(,pn
+                  ,@(read-from-string
+                      (brute-force-string-replace
+                        (sconc
+                          `("["
+                            ,@(rest
+                                (list-of-col-php-arr-lines
+                                  (list-of-lines-from-file!
+                                    pn)))))))))
+              files)
+            (yason:make-json-output-stream
+              *standard-output*
+              :indent t))))
 
       (main)
 
