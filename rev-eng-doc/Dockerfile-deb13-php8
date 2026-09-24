@@ -1,0 +1,103 @@
+# Force rebuild in Docker:
+#     bash$ sudo docker compose up --build ;
+# as opposed to
+#     bash$ sudo docker compose up ;
+
+
+# Debian 11 Bullseye
+#     FROM php:7.4-apache as base
+#     FROM 7.4.33-apache-bullseye as base
+# Debian 13 Trixie
+      FROM php:8.5-apache-trixie as base
+
+# Install Dependancies
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+
+#RUN apt update -y && \
+#    apt upgrade -y && \
+#    apt install -y curl zip unzip git mariadb-client && \
+#    chmod +x /usr/local/bin/install-php-extensions && \
+#    sync && \
+#    install-php-extensions ldap intl zip pdo_mysql openssl
+
+RUN apt-get update -y
+# 2026-09-17 dapperdrake:
+#U001 #u"https://unix.stackexchange.com/questions
+#    +   /776892/apt-get-update-failing"
+#U002 #u"https://hub.docker.com/layers/library/php
+#    +   /7.4-apache/images/sha256-d85f6e9fbbbaba46c
+#    +   f024a70075b871bee1bec59a898765f8c756bc01766
+#    +   6e81"
+# It seems like debian 11 bullseye is at its end of
+# life.  This may explain why the package upgrade
+# fails.  Docker container 7.4-apache is reportedly
+# also known as 7.4.33-apache-bullseye.  The Docker
+# Hub container registry even claims to be built on
+# a Debian 11 bullseye slim container.
+#     RUN sed -i 's|deb.debian.org|snapshot.debian.org|g' /etc/apt/sources.list
+
+      RUN apt-get upgrade -y
+RUN apt-get install -y curl zip unzip git mariadb-client gh
+RUN chmod +x /usr/local/bin/install-php-extensions
+RUN sync
+RUN install-php-extensions ldap intl zip pdo_mysql openssl
+
+RUN a2enmod rewrite && \
+    a2enmod expires && \
+    a2enmod headers && \
+    a2enmod http2 && \
+    sed -e '/<Directory \/var\/www\/>/,/<\/Directory>/s/AllowOverride None/AllowOverride All/' -i /etc/apache2/apache2.conf
+
+# Install composer
+RUN mkdir /opt/composer && \
+    curl -sS https://getcomposer.org/installer > composer.php && \
+    php composer.php --install-dir=/opt/composer
+
+FROM base as develop
+
+COPY .docker/environment.conf /etc/apache2/conf-enabled/
+
+# 2026-09-17 dapperdrake:
+#U003 #u"https://pecl.php.net/"
+#U004 #u"https://github.com/php/pie"
+#U005 #u"https://www.php.net/manual/en
+#    +   /install.pie.intro.php"
+# It seems like PECL is deprecated and has been
+# replaced by PHP Installer for Extensions (PIE).
+
+      ADD https://github.com/php/pie/releases/download/1.5.0/pie.phar /usr/local/bin
+
+# 2026-09-17 dapperdrake:
+#U006 #u"https://stackoverflow.com/questions/78919643
+#    +   /unknown-command-attestation-for-gh"
+# Apparently, the PHP PIE github repository refers to
+# a gh(1) subcommand "attestation", that is
+# unsupported on Debian 13 trixie's version
+# of gh(1) as of this writing.
+#
+#     RUN gh attestation verify --owner php /usr/local/bin/pie.phar
+
+RUN pecl install xdebug-3.1.6 && \
+    docker-php-ext-enable xdebug && \
+    echo "TLS_REQCERT never" >> /etc/ldap.conf
+
+#U007 #u"https://packagist.org/packages/xdebug/xdebug"
+#     RUN php /usr/local/bin/pie.phar install xdebug/xdebug
+#     RUN docker-php-ext-enable xdebug
+#     RUN echo "TLS_REQCERT never" >> /etc/ldap.conf
+
+FROM base as production
+
+WORKDIR /var/www
+
+COPY . .
+COPY ./webroot ./html
+RUN mkdir logs && \
+    chown www-data.www-data logs && \
+    cp ./.docker/environment.conf /etc/apache2/conf-enabled/ && \
+    cp ./config/app.default.php ./config/app.php && \
+    mkdir ./tmp && chown www-data.www-data ./tmp && chmod 767 ./tmp && \
+    rm -rf ./html && ln -s /var/www/webroot /var/www/html && \
+    cp ./.docker/prod/php-production.ini /usr/local/etc/php/php.ini && \
+    php /opt/composer/composer.phar -n install
+EXPOSE 80
