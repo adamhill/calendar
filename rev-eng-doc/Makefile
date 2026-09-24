@@ -10,6 +10,7 @@
 all:\
   data-col-info.gron \
   data-col-info.json \
+  data-col-info.se \
   rooms.csv \
   tools.csv \
   cat-com-sig.csv \
@@ -29,7 +30,18 @@ data-col-info.gron: \
 	# END bash recipe
 
 data-col-info.json: \
-  brute-force-col-names-json.lisp \
+  json-from-lisp-data.lisp \
+  data-col-info.se
+	# bash recipe
+	< data-col-info.se \
+	./json-from-lisp-data.lisp \
+	> data-col-info.json \
+	;
+	# END bash recipe
+
+data-col-info.se: \
+  brute-force-col-names-lisp.lisp \
+  controller-data-table-columns.csv \
   ../tests/Fixture/CategoriesEventsFixture.php \
   ../tests/Fixture/CategoriesFixture.php \
   ../tests/Fixture/CommitteesFixture.php \
@@ -46,8 +58,8 @@ data-col-info.json: \
   ../tests/Fixture/ToolsFixture.php \
   ../tests/Fixture/W9sFixture.php
 	# bash recipe
-	./brute-force-col-names-json.lisp \
-	> data-col-info.json \
+	./brute-force-col-names-lisp.lisp \
+	> data-col-info.se \
 	;
 	# END bash recipe
 
@@ -114,6 +126,9 @@ cat-com-sig.xml: \
 .PHONY: clean
 clean:
 	# bash recipe
+	rm data-col-info.gron || true ;
+	rm data-col-info.json || true ;
+	rm data-col-info.se || true ;
 	# rm rooms.csv || true ;
 	# rm tools.csv || true ;
 	# rm cat-com-sig.csv || true ;

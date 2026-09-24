@@ -1,0 +1,480 @@
+
+(((TABLE-NAME "categories_events")
+  (FIXTURE-PN #P"../tests/Fixture/CategoriesEventsFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("category_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("event_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "categories")
+  (FIXTURE-PN #P"../tests/Fixture/CategoriesFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("name"
+   (("type" "string") ("length" 80) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "committees")
+  (FIXTURE-PN #P"../tests/Fixture/CommitteesFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("name"
+   (("type" "string") ("length" 80) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "config") (FIXTURE-PN #P"../tests/Fixture/ConfigFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("type"
+   (("type" "string") ("length" 255) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8mb4_unicode_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("value"
+   (("type" "string") ("length" 255) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8mb4_unicode_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8mb4_unicode_ci"))))
+ ((TABLE-NAME "configurations")
+  (FIXTURE-PN #P"../tests/Fixture/ConfigurationsFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("name"
+   (("type" "string") ("length" 255) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("value"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "contacts") (FIXTURE-PN #P"../tests/Fixture/ContactsFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("name"
+   (("type" "string") ("length" 100) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("ad_username"
+   (("type" "string") ("length" 255) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("email"
+   (("type" "string") ("length" 255) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("phone"
+   (("type" "string") ("length" 255) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("w9_on_file"
+   (("type" "boolean") ("length" NULL) ("null" FALSE) ("default" "0")
+    ("comment" "") ("precision" NULL)))
+  ("blacklisted"
+   (("type" "boolean") ("length" NULL) ("null" TRUE) ("default" "0")
+    ("comment" "") ("precision" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "events") (FIXTURE-PN #P"../tests/Fixture/EventsFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("name"
+   (("type" "string") ("length" 80) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("short_description"
+   (("type" "string") ("length" 250) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("long_description"
+   (("type" "text") ("length" NULL) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)))
+  ("advisories"
+   (("type" "text") ("length" NULL) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)))
+  ("event_start"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("event_end"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("booking_start"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("booking_end"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("cost"
+   (("type" "decimal") ("length" 15) ("precision" 2) ("unsigned" FALSE)
+    ("null" FALSE) ("default" NULL) ("comment" "")))
+  ("eventbrite_link"
+   (("type" "string") ("length" 255) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("free_spaces"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("paid_spaces"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("members_only"
+   (("type" "boolean") ("length" NULL) ("null" FALSE) ("default" "0")
+    ("comment" "") ("precision" NULL)))
+  ("age_restriction"
+   (("type" "integer") ("length" 3) ("unsigned" FALSE) ("null" FALSE)
+    ("default" "0") ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("attendees_require_approval"
+   (("type" "boolean") ("length" NULL) ("null" FALSE) ("default" "0")
+    ("comment" "") ("precision" NULL)))
+  ("attendee_cancellation"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("extend_registration"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" "0") ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("class_number"
+   (("type" "integer") ("length" 1) ("unsigned" FALSE) ("null" FALSE)
+    ("default" "0") ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("sponsored"
+   (("type" "boolean") ("length" NULL) ("null" FALSE) ("default" "0")
+    ("comment" "") ("precision" NULL)))
+  ("status"
+   (("type" "string") ("length" 20) ("null" FALSE) ("default" "pending")
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("room_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" TRUE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("contact_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("fulfills_prerequisite_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" TRUE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("requires_prerequisite_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" TRUE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("part_of_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" TRUE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("copy_of_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" TRUE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("rejected_by"
+   (("type" "string") ("length" 100) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("rejection_reason"
+   (("type" "string") ("length" 250) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("created_by"
+   (("type" "string") ("length" 255) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("cancel_notification"
+   (("type" "boolean") ("length" NULL) ("null" FALSE) ("default" "0")
+    ("comment" "") ("precision" NULL)))
+  ("reminder_notification"
+   (("type" "boolean") ("length" NULL) ("null" FALSE) ("default" "0")
+    ("comment" "") ("precision" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "events_tools")
+  (FIXTURE-PN #P"../tests/Fixture/EventsToolsFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("tool_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("event_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "files") (FIXTURE-PN #P"../tests/Fixture/FilesFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("file"
+   (("type" "string") ("length" 255) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("dir"
+   (("type" "string") ("length" 255) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("type"
+   (("type" "string") ("length" 255) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("event_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("private"
+   (("type" "boolean") ("length" NULL) ("null" TRUE) ("default" "0")
+    ("comment" "") ("precision" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "honoraria")
+  (FIXTURE-PN #P"../tests/Fixture/HonorariaFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("event_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("pay_contact"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" TRUE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("committee_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" TRUE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("paid"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" TRUE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "prerequisites")
+  (FIXTURE-PN #P"../tests/Fixture/PrerequisitesFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("name"
+   (("type" "string") ("length" 80) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("ad_group"
+   (("type" "string") ("length" 100) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "registrations")
+  (FIXTURE-PN #P"../tests/Fixture/RegistrationsFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("event_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("type"
+   (("type" "string") ("length" 255) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("name"
+   (("type" "string") ("length" 100) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("email"
+   (("type" "string") ("length" 255) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("phone"
+   (("type" "string") ("length" 15) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("ad_username"
+   (("type" "string") ("length" 255) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("send_text"
+   (("type" "boolean") ("length" NULL) ("null" FALSE) ("default" "0")
+    ("comment" "") ("precision" NULL)))
+  ("edit_key"
+   (("type" "string") ("length" 255) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("status"
+   (("type" "string") ("length" 255) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("attended"
+   (("type" "boolean") ("length" NULL) ("null" FALSE) ("default" "0")
+    ("comment" "") ("precision" NULL)))
+  ("ad_assigned"
+   (("type" "boolean") ("length" NULL) ("null" FALSE) ("default" "0")
+    ("comment" "") ("precision" NULL)))
+  ("transaction_id"
+   (("type" "string") ("length" 255) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "rooms") (FIXTURE-PN #P"../tests/Fixture/RoomsFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("name"
+   (("type" "string") ("length" 80) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("exclusive"
+   (("type" "boolean") ("length" NULL) ("null" FALSE) ("default" "1")
+    ("comment" "") ("precision" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "tools") (FIXTURE-PN #P"../tests/Fixture/ToolsFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("name"
+   (("type" "string") ("length" 80) ("null" FALSE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "w9s") (FIXTURE-PN #P"../tests/Fixture/W9sFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("contact_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("vendor_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" TRUE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("file"
+   (("type" "string") ("length" 255) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("type"
+   (("type" "string") ("length" 255) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("dir"
+   (("type" "string") ("length" 255) ("null" TRUE) ("default" NULL)
+    ("collate" "utf8_general_ci") ("comment" "") ("precision" NULL)
+    ("fixed" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci"))))
+ ((TABLE-NAME "honoraria")
+  (FIXTURE-PN #P"../tests/Fixture/HonorariaFixture.php")
+  ("id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("autoIncrement" TRUE) ("precision" NULL)))
+  ("event_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" FALSE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("pay_contact"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" TRUE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("committee_id"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" TRUE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("paid"
+   (("type" "integer") ("length" 11) ("unsigned" FALSE) ("null" TRUE)
+    ("default" NULL) ("comment" "") ("precision" NULL) ("autoIncrement" NULL)))
+  ("created"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("modified"
+   (("type" "datetime") ("length" NULL) ("null" FALSE) ("default" NULL)
+    ("comment" "") ("precision" NULL)))
+  ("_constraints"
+   (("primary" (("type" "primary") ("columns" (("id" NIL))) ("length" NIL)))))
+  ("_options" (("engine" "InnoDB") ("collation" "utf8_general_ci")))))
