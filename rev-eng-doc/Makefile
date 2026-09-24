@@ -30,7 +30,7 @@ data-col-info.gron: \
 
 # EXTERNAL DEPENDENCIES: php8.5(1) a.k.a. php85(1)
 data-col-info.json: \
-  brute-force-col-names-json.lisp
+  brute-force-col-names-json.lisp \
   ../tests/Fixture/CategoriesEventsFixture.php \
   ../tests/Fixture/CategoriesFixture.php \
   ../tests/Fixture/CommitteesFixture.php \
