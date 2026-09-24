@@ -12,21 +12,21 @@
 
       (defparameter
           files
-          '(#p"CategoriesEventsFixture.php"
-            #p"CategoriesFixture.php"
-            #p"CommitteesFixture.php"
-            #p"ConfigFixture.php"
-            #p"ConfigurationsFixture.php"
-            #p"ContactsFixture.php"
-            #p"EventsFixture.php"
-            #p"EventsToolsFixture.php"
-            #p"FilesFixture.php"
-            #p"HonorariaFixture.php"
-            #p"PrerequisitesFixture.php"
-            #p"RegistrationsFixture.php"
-            #p"RoomsFixture.php"
-            #p"ToolsFixture.php"
-            #p"W9sFixture.php"))
+   '(#p"../tests/Fixture/CategoriesEventsFixture.php"
+     #p"../tests/Fixture/CategoriesFixture.php"
+     #p"../tests/Fixture/CommitteesFixture.php"
+     #p"../tests/Fixture/ConfigFixture.php"
+     #p"../tests/Fixture/ConfigurationsFixture.php"
+     #p"../tests/Fixture/ContactsFixture.php"
+     #p"../tests/Fixture/EventsFixture.php"
+     #p"../tests/Fixture/EventsToolsFixture.php"
+     #p"../tests/Fixture/FilesFixture.php"
+     #p"../tests/Fixture/HonorariaFixture.php"
+     #p"../tests/Fixture/PrerequisitesFixture.php"
+     #p"../tests/Fixture/RegistrationsFixture.php"
+     #p"../tests/Fixture/RoomsFixture.php"
+     #p"../tests/Fixture/ToolsFixture.php"
+     #p"../tests/Fixture/W9sFixture.php"))
 
       (defun
           list-of-lines-from-file!
